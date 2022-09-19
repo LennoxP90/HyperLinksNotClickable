@@ -7,7 +7,8 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
-    Hyperlinks.ItemsSource = links;
+    HyperlinksCollectionView.ItemsSource = links;
+    HyperlinksListView.ItemsSource = links;
   }
 
   private ObservableCollection<HyperLink> links = new ObservableCollection<HyperLink>();

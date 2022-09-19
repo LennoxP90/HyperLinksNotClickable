@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:main="clr-namespace:HyperLinksNotClickable"
              x:Class="HyperLinksNotClickable.MainPage">
-  <Grid RowDefinitions="*, 40"
+  <Grid RowDefinitions="*,*,40"
         RowSpacing="5">
-    <CollectionView x:Name="Hyperlinks"
+    <CollectionView x:Name="HyperlinksCollectionView"
                     Grid.Row="0"
                     BackgroundColor="Gray">
       <CollectionView.ItemTemplate>
@@ -15,11 +15,22 @@
       </CollectionView.ItemTemplate>
     </CollectionView>
 
+    <ListView x:Name="HyperlinksListView"
+              Grid.Row="1"
+              BackgroundColor="LightGray">
+      <ListView.ItemTemplate>
+        <DataTemplate x:DataType="main:HyperLink">
+          <ViewCell>
+            <Label FormattedText="{Binding Text}"/>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
     <Button x:Name="CounterBtn"
-            Grid.Row="1"
+            Grid.Row="2"
             Text="Add new hyperlink"
             Clicked="OnClicked"
             HorizontalOptions="Center" />
-
   </Grid>
 </ContentPage>
