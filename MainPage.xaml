@@ -7,21 +7,31 @@
         RowSpacing="5">
     <CollectionView x:Name="HyperlinksCollectionView"
                     Grid.Row="0"
-                    BackgroundColor="Gray">
+                    BackgroundColor="Gray"
+                    SelectionMode="Single">
       <CollectionView.ItemTemplate>
         <DataTemplate x:DataType="main:HyperLink">
-          <Label FormattedText="{Binding Text}"/>
+          <Label FormattedText="{Binding Text}">
+            <Label.GestureRecognizers>
+              <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Label.GestureRecognizers>
+          </Label>
         </DataTemplate>
       </CollectionView.ItemTemplate>
     </CollectionView>
 
     <ListView x:Name="HyperlinksListView"
               Grid.Row="1"
-              BackgroundColor="LightGray">
+              BackgroundColor="LightGray"
+              SelectionMode="None">
       <ListView.ItemTemplate>
         <DataTemplate x:DataType="main:HyperLink">
           <ViewCell>
-            <Label FormattedText="{Binding Text}"/>
+            <Label FormattedText="{Binding Text}">
+              <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+              </Label.GestureRecognizers>
+            </Label>
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>

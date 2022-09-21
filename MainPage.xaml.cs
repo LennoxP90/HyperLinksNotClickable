@@ -32,6 +32,11 @@ public partial class MainPage : ContentPage
 
     links.Add( link );
 	}
+
+  private void TapGestureRecognizer_Tapped( object sender, EventArgs e )
+  {
+    bool test = true;
+  }
 }
 
 public class HyperLink
